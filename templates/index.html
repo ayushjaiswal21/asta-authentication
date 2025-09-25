@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstraLearn - Welcome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold text-blue-600">AstraLearn</a>
+            <div>
+                {% if user_info %}
+                    <span class="mr-4">Welcome, {{ user_info.name or user_info }}!</span>
+                    <a href="{{ url_for('logout') }}" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('signin') }}" class="text-gray-600 hover:text-blue-600 mr-4">Sign in</a>
+                    <a href="{{ url_for('join') }}" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Join Now</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="container mx-auto px-6 py-16 text-center">
+        <div class="max-w-4xl mx-auto">
+             <h1 class="text-5xl font-bold text-gray-800 mb-4">Master any skill, anytime, anywhere – Distraction-free!</h1>
+             <p class="text-xl text-gray-600 mb-8">World values what you can do, not just what you know!</p>
+             <a href="{{ url_for('join') }}" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 text-lg">Join Now</a>
+        </div>
+    </main>
+
+    <!-- Skills vs Degrees Section -->
+    <section class="bg-gray-50 py-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Skills vs Degrees</h2>
+                <p class="text-lg text-gray-600">The world is evolving, and so is the job market. Employers are increasingly valuing practical skills over traditional degrees. AstraLearn is your gateway to acquiring the skills that matter, making you a top contender in your field.</p>
+            </div>
+            <div class="md:w-1/2 mt-8 md:mt-0">
+                <img src="{{ url_for('static', filename='images/image1.jpeg') }}" alt="Skills vs Degrees" class="rounded-lg shadow-lg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Master Any Skill Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row-reverse items-center">
+            <div class="md:w-1/2">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Master any skill</h2>
+                <p class="text-lg text-gray-600">Whether you want to learn coding, design, marketing, or any other skill, AstraLearn has got you covered. Our platform offers a distraction-free environment, allowing you to focus on what truly matters: learning.</p>
+            </div>
+            <div class="md:w-1/2 mt-8 md:mt-0">
+                <img src="{{ url_for('static', filename='images/image2.jpeg') }}" alt="Master any skill" class="rounded-lg shadow-lg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect and Grow Section -->
+    <section class="bg-gray-50 py-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Connect and Grow</h2>
+                <p class="text-lg text-gray-600">AstraLearn is more than just a learning platform. It's a community of learners and experts. Connect with like-minded individuals, collaborate on projects, and grow together.</p>
+            </div>
+            <div class="md:w-1/2 mt-8 md:mt-0">
+                <img src="{{ url_for('static', filename='images/image3.jpeg') }}" alt="Connect and Grow" class="rounded-lg shadow-lg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-6">
+        <div class="container mx-auto px-6 text-center text-gray-600">
+            <p>&copy; 2025 AstraLearn. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
